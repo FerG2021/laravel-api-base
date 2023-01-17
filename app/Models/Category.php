@@ -6,21 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class UnidadMedida extends Model
+class Category extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        'nombre'        
+        'name',
+        'description',
     ];
 
     // funciones publicas
     public function obtenerObjDatos():array{
         return [
-            'id' => $this->id,
-            'nombre' => $this->nombre,
+            'name' => $this->name,
+            'description' => $this->description,
         ];
     }
 
